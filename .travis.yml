@@ -30,6 +30,7 @@ addons:
       - libfcgi-dev
 
 install:
+  - cc --version
   # Install libcrypto
   - sudo apt-get install libssl-dev
   # Install Roswell
