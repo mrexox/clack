@@ -1,3 +1,4 @@
+os: trusty
 language: common-lisp
 
 # Wookie handler fails with memory corruption when using Travis CI's new container-based architecture.
