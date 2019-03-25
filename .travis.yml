@@ -30,8 +30,14 @@ addons:
       - libfcgi-dev
       - libssl-dev
 
+before_install:
+  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+  - sudo apt-get update
+  - sudo apt-get install gcc-5 g++-5
+  - sudo unlink /usr/bin/gcc && sudo ln -s /usr/bin/gcc-5 /usr/bin/gcc
+  - sudo unlink /usr/bin/g++ && sudo ln -s /usr/bin/g++-5 /usr/bin/g++
+
 install:
-  - gcc-5 --version
   # Install Roswell
   - curl -L https://raw.githubusercontent.com/snmsts/roswell/$ROSWELL_BRANCH/scripts/install-for-ci.sh | sh
   - ros asdf install
@@ -64,7 +70,7 @@ before_script:
 
 script:
   - if [ "$LISP" = "sbcl-bin" ]; then
-      run-prove t-*.asd;
+      travis_wait 30 run-prove t-*.asd;
     else
-      run-prove t-clack-handler-hunchentoot.asd;
+      travis_wait 30 run-prove t-clack-handler-hunchentoot.asd;
     fi
