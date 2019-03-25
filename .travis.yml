@@ -28,11 +28,11 @@ addons:
   apt:
     packages:
       - libfcgi-dev
+      - libssl-dev
+      - gcc-5
+
 
 install:
-  - cc --version
-  # Install libcrypto
-  - sudo apt-get install libssl-dev
   # Install Roswell
   - curl -L https://raw.githubusercontent.com/snmsts/roswell/$ROSWELL_BRANCH/scripts/install-for-ci.sh | sh
   - ros asdf install
