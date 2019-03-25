@@ -29,9 +29,9 @@ addons:
     packages:
       - libfcgi-dev
       - libssl-dev
-      - gcc-5
 
 install:
+  - gcc-5 --version
   # Install Roswell
   - curl -L https://raw.githubusercontent.com/snmsts/roswell/$ROSWELL_BRANCH/scripts/install-for-ci.sh | sh
   - ros asdf install
