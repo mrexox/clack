@@ -31,7 +31,7 @@ addons:
 
 install:
   # Install libcrypto
-  - apt-get install libssl-dev
+  - sudo apt-get install libssl-dev
   # Install Roswell
   - curl -L https://raw.githubusercontent.com/snmsts/roswell/$ROSWELL_BRANCH/scripts/install-for-ci.sh | sh
   - ros asdf install
